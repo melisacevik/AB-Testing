@@ -156,22 +156,19 @@ df_test["Purchase"].mean()
 
 # Kontrol ve test grubunun normallik varsayımına uyup uymadığını Purchase değişkeni üzerinden ayrı ayrı test ediniz
 
-# Kontrol grubunun normallik varsayımı:
+# Normallik varsayımı
 
 test_stat, pvalue = shapiro(df_control["Purchase"])
-print('Test Stat = %.4f, p-value = %.4f' % (test_stat, pvalue)) # H0 Reddedilemez! Normallik Varsayımı sağlandı
-
-test_stat, pvalue = levene(df_control["Purchase"], df_test["Purchase"])
-print('Test Stat = %.4f, p-value = %.4f' % (test_stat, pvalue)) # H0 Reddedilemez! Varyans Homojenliği Varsayımı sağlandı
-
-
-# Test grubunun normallik varsayımı:
+print('Test Stat = %.4f, p-value = %.4f' % (test_stat, pvalue)) # H0 Reddedilemez! Normallik Varsayımı sağlanıyor
 
 test_stat, pvalue = shapiro(df_test["Purchase"])
-print('Test Stat = %.4f, p-value = %.4f' % (test_stat, pvalue)) # H0 Reddedilemez! Normallik Varsayımı sağlandı
+print('Test Stat = %.4f, p-value = %.4f' % (test_stat, pvalue)) # H0 Reddedilemez! Normallik Varsayımı sağlanıyor
+
+# Varyans Homojenliği Varsayımı
 
 test_stat, pvalue = levene(df_control["Purchase"], df_test["Purchase"])
-print('Test Stat = %.4f, p-value = %.4f' % (test_stat, pvalue)) # H0 Reddedilemez! Varyans Homojenliği Varsayımı sağlandı.
+print('Test Stat = %.4f, p-value = %.4f' % (test_stat, pvalue)) # H0 Reddedilemez! Varyans Homojenliği Varsayımı sağlanıyor
+
 
 
 # Adım 2: Normallik Varsayımı ve Varyans Homojenliği sonuçlarına göre uygun testi seçiniz
